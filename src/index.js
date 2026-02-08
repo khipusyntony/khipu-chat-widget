@@ -531,10 +531,32 @@ function autoInit() {
     // Wait for DOM ready
     if (document.readyState === 'loading') {
       document.addEventListener('DOMContentLoaded', () => {
-        window.KhipuChat = new KhipuChatWidget(config);
+        const instance = new KhipuChatWidget(config);
+        
+        // Expose public methods globally
+        window.KhipuChat = {
+          open: () => instance.openChat(),
+          close: () => instance.closeChat(),
+          sendMessage: (text) => instance.sendCustomMessage(text),
+          setUser: (userData) => instance.setUser(userData),
+          instance: instance
+        };
+        
+        console.log('Khipu Chat Widget ready with public API');
       });
     } else {
-      window.KhipuChat = new KhipuChatWidget(config);
+      const instance = new KhipuChatWidget(config);
+      
+      // Expose public methods globally
+      window.KhipuChat = {
+        open: () => instance.openChat(),
+        close: () => instance.closeChat(),
+        sendMessage: (text) => instance.sendCustomMessage(text),
+        setUser: (userData) => instance.setUser(userData),
+        instance: instance
+      };
+      
+      console.log('Khipu Chat Widget ready with public API');
     }
   }
 }
