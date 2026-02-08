@@ -1,7 +1,7 @@
 /**
  * Khipu Chat Widget - Main Entry Point
  * Sistema de chatbot multiempresa con IA para el mercado peruano
- * @version 1.0.0
+ * @version 1.0.1 - CORREGIDO
  */
 
 import './styles.scss';
@@ -223,8 +223,11 @@ class KhipuChatWidget {
    * Attach event listeners
    */
   attachEventListeners() {
-    // Toggle chat
-    this.button.addEventListener('click', () => this.toggle());
+    // CORREGIDO: Button ALWAYS opens chat, never toggles
+    this.button.addEventListener('click', () => {
+      console.log('Button clicked, opening chat...');
+      this.open();
+    });
     
     // Close button
     const closeBtn = this.chatWindow.querySelector('.khipu-chat-close');
@@ -262,9 +265,16 @@ class KhipuChatWidget {
   }
 
   /**
-   * Open chat window
+   * Open chat window - CORREGIDO
    */
   open() {
+    // If already open, do nothing
+    if (this.isOpen) {
+      console.log('Chat already open, ignoring');
+      return;
+    }
+    
+    console.log('Opening chat window...');
     this.isOpen = true;
     this.isMinimized = false;
     this.chatWindow.style.display = 'flex';
@@ -273,7 +283,9 @@ class KhipuChatWidget {
     // Focus input
     setTimeout(() => {
       const input = this.chatWindow.querySelector('.khipu-chat-input');
-      input.focus();
+      if (input) {
+        input.focus();
+      }
     }, 300);
     
     // Scroll to bottom
@@ -281,12 +293,15 @@ class KhipuChatWidget {
     
     // Clear badge
     this.updateBadge(0);
+    
+    console.log('Chat opened successfully');
   }
 
   /**
    * Close chat window
    */
   close() {
+    console.log('Closing chat window...');
     this.isOpen = false;
     this.chatWindow.style.display = 'none';
     this.button.classList.remove('khipu-chat-button-hidden');
@@ -516,7 +531,7 @@ class KhipuChatWidget {
   }
 }
 
-// Auto-initialize from script tag
+// Auto-initialize from script tag - CORREGIDO
 function autoInit() {
   const script = document.currentScript || document.querySelector('script[data-bot-id]');
   

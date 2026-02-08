@@ -1,48 +1,27 @@
 {
   "name": "khipu-chat-widget",
-  "version": "1.0.0",
-  "description": "Sistema de chatbot multiempresa con IA para el mercado peruano",
+  "version": "1.0.1",
+  "description": "Widget de chatbot con IA para el mercado peruano",
   "main": "dist/widget.min.js",
   "scripts": {
-    "dev": "webpack serve --mode development --open",
-    "build": "webpack --mode production",
-    "deploy": "npm run build && git add dist/ && git commit -m 'Build: Update widget' && git push origin main",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "webpack --mode development --watch",
+    "build": "webpack --mode production"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/khipusyntony/khipu-chat-widget.git"
-  },
-  "keywords": [
-    "chatbot",
-    "ai",
-    "widget",
-    "peru",
-    "multiempresa",
-    "whatsapp",
-    "groq",
-    "n8n"
-  ],
-  "author": "Khipu Syntony",
+  "keywords": ["chatbot", "widget", "ai", "peru"],
+  "author": "Ronald - Khipu Syntony",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/khipusyntony/khipu-chat-widget/issues"
-  },
-  "homepage": "https://khipusyntony.github.io/khipu-chat-widget/",
   "devDependencies": {
     "@babel/core": "^7.23.0",
     "@babel/preset-env": "^7.23.0",
     "babel-loader": "^9.1.3",
     "css-loader": "^6.8.1",
     "css-minimizer-webpack-plugin": "^5.0.1",
-    "html-webpack-plugin": "^5.5.3",
+    "mini-css-extract-plugin": "^2.7.6",
     "sass": "^1.69.0",
     "sass-loader": "^13.3.2",
-    "style-loader": "^3.3.3",
     "terser-webpack-plugin": "^5.3.9",
     "webpack": "^5.89.0",
-    "webpack-cli": "^5.1.4",
-    "webpack-dev-server": "^4.15.1"
+    "webpack-cli": "^5.1.4"
   },
   "dependencies": {
     "dompurify": "^3.0.6",

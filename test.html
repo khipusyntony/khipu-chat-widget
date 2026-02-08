@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Widget Verificado</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+        }
+        .test-controls {
+            margin: 20px 0;
+            padding: 20px;
+            background: #f0f0f0;
+            border-radius: 8px;
+        }
+        button {
+            margin: 5px;
+            padding: 10px 20px;
+            font-size: 14px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>🎉 Widget Verificado - Test</h1>
+    
+    <div class="test-controls">
+        <h3>Controles de Prueba:</h3>
+        <button onclick="window.KhipuChat.open()">🚀 Abrir Chat</button>
+        <button onclick="window.KhipuChat.close()">❌ Cerrar Chat</button>
+        <button onclick="window.KhipuChat.sendMessage('Test')">💬 Enviar Mensaje</button>
+        <button onclick="checkStatus()">🔍 Verificar Estado</button>
+    </div>
+    
+    <div id="status"></div>
+
+    <!-- Widget Files -->
+    <link rel="stylesheet" href="dist/widget.min.css">
+    <script src="dist/widget.min.js" data-bot-id="template" data-color="#6366F1"></script>
+    
+    <script>
+        function checkStatus() {
+            const status = document.getElementById('status');
+            status.innerHTML = '<pre>' + 
+                'window.KhipuChat tipo: ' + typeof window.KhipuChat + '\n' +
+                'Métodos: ' + (window.KhipuChat ? Object.keys(window.KhipuChat).join(', ') : 'N/A') +
+            '</pre>';
+        }
+        
+        setTimeout(checkStatus, 1000);
+    </script>
+</body>
+</html>
