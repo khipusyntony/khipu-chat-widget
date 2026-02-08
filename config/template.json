@@ -1,0 +1,87 @@
+{
+  "clientId": "TEMPLATE",
+  "clientName": "Template Base",
+  "industry": "general",
+  "version": "1.0.0",
+  
+  "appearance": {
+    "primaryColor": "#6366F1",
+    "secondaryColor": "#818CF8",
+    "botAvatar": "",
+    "position": "bottom-right",
+    "offset": {
+      "x": 20,
+      "y": 20
+    },
+    "buttonText": "¿Necesitas ayuda? 💬",
+    "headerTitle": "Asistente Virtual",
+    "headerSubtitle": "En línea"
+  },
+  
+  "messages": {
+    "welcome": "¡Hola! 👋 Soy tu asistente virtual. ¿En qué puedo ayudarte?",
+    "offline": "Estamos temporalmente fuera de línea. Te responderemos pronto.",
+    "error": "Disculpa, algo salió mal. Por favor intenta nuevamente.",
+    "placeholder": "Escribe tu mensaje..."
+  },
+  
+  "quickReplies": {
+    "initial": [
+      {"label": "💬 Información", "value": "info"},
+      {"label": "📞 Contacto", "value": "contact"},
+      {"label": "❓ Ayuda", "value": "help"}
+    ]
+  },
+  
+  "behavior": {
+    "autoOpen": false,
+    "showOnLoad": true,
+    "proactiveMessage": {
+      "enabled": false,
+      "delay": 30000,
+      "message": "¿Necesitas ayuda? Estoy aquí para ti."
+    },
+    "typing": {
+      "enabled": true,
+      "duration": 1500
+    }
+  },
+  
+  "features": {
+    "fileUpload": false,
+    "voiceMessages": false,
+    "notifications": true,
+    "sound": true,
+    "persistence": true,
+    "markdown": true
+  },
+  
+  "businessHours": {
+    "timezone": "America/Lima",
+    "enabled": false,
+    "schedule": {
+      "monday": {"open": "09:00", "close": "18:00"},
+      "tuesday": {"open": "09:00", "close": "18:00"},
+      "wednesday": {"open": "09:00", "close": "18:00"},
+      "thursday": {"open": "09:00", "close": "18:00"},
+      "friday": {"open": "09:00", "close": "18:00"},
+      "saturday": {"closed": true},
+      "sunday": {"closed": true}
+    }
+  },
+  
+  "integration": {
+    "webhookUrl": "https://n8n.khipusyntony.com/webhook/chatbot-TEMPLATE",
+    "clientToken": "TO_BE_GENERATED",
+    "googleSheetId": "",
+    "channels": ["web"]
+  },
+  
+  "locale": "es-PE",
+  
+  "aiConfig": {
+    "tone": "amigable, profesional",
+    "personality": "Asistente virtual servicial",
+    "contextualKnowledge": []
+  }
+}
